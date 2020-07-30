@@ -26,7 +26,7 @@ const server = ws.createServer((connect) => {
                 connect.nickname = data.nickname;
                 broadcast(JSON.stringify({
                     type: "serverInformation",
-                    message: data.nickname + " join room"
+                    message: data.nickname + " 进入了房间。"
                 }));
 
                 broadcast(JSON.stringify({
@@ -49,7 +49,7 @@ const server = ws.createServer((connect) => {
     connect.on("close", () => {
         broadcast(JSON.stringify({
             type: "serverInfomation",
-            message: connect.nickname+" left room"
+            message: connect.nickname+" 离开了。"
         }));
 
         broadcast(JSON.stringify({
